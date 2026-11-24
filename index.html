@@ -50,6 +50,13 @@ function submitRegistration(){let n=document.getElementById('pname').value,s=doc
 
 // ===== Pengelolaan data lokal (prototype V3) =====
 const DBKEY='zmart123_v3_data';
+ const SUPABASE_URL = 'https://wqkkofstvedjqktabydc.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zotCcwcPLAP2ebkCw3u6TQ_V-rlh2K9';
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 function loadDB(){try{return JSON.parse(localStorage.getItem(DBKEY))||{tutors:[],students:[],announcements:[],payments:[]}}catch(e){return {tutors:[],students:[],announcements:[],payments:[]}}}
 function saveDB(d){localStorage.setItem(DBKEY,JSON.stringify(d))}
 let db=loadDB(), loggedUser='';
